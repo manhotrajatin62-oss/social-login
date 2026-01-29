@@ -670,7 +670,7 @@ export const TwitterLogin = () => (
     viewBox="0 0 512 512"
     id="twitter"
   >
-    <g clip-path="url(#clip0_84_15697)">
+    <g clipPath="url(#clip0_84_15697)">
       <rect width="512" height="512" fill="#000" rx="60"></rect>
       <path
         fill="#fff"

@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+*{
+    box-sizing: border-box;
+    font-family:  sans-serif;
+}
+
+@theme {
+  --color-light: #f4f5f7;
+  --color-light-orange: #fff3e3;
+  --color-dark-orange: #b88e2f;
+  --color-slider: #fcf8f3;
+  --color-font: #333333;
+  --color-light-font: #666666;
+  --color-results: #f9f1e7;
+  --color-cart: #b88e2f38;
+  --color-footer: #9f9f9f;
+  --color-light-footer: #faf3ea;
+  --color-footer-black: #242424;
+  --color-light-grey: #d9d9d9;
+  --color-grey1: #3a3a3a;
+  --color-grey2: #616161;
+  --color-grey3: #898989;
+  --color-grey4: #b0b0b0;
+  --color-grey5: #d8d8d8;
+  --color-red: #e97171;
+  --color-green: #2ec1ac;
+  --color-border: #C7CCD0;
+  --color-light-button: #f6f6f6;
+}
+
+@layer components {
+  .grid-btn {
+    @apply bg-results flex h-10 w-10 cursor-pointer items-center justify-center
+    rounded-lg lg:h-15 lg:w-15;
+  }
+  
+  .input {
+    @apply border-footer h-12 rounded-lg border px-3 text-sm outline-0
+    focus:border-black xl:h-18 xl:text-base;
+  }
+  
+  .form-input {
+    @apply h-8 w-full rounded-lg border bg-white px-4 text-xs outline-none
+    placeholder:text-grey3 placeholder:text-xs lg:text-sm lg:h-10.5
+    lg:placeholder:text-sm xl:w-90.25;
+  }
+  
+  .form-label {
+    @apply mb-2 w-fit cursor-pointer text-xs lg:text-sm;
+  }
+}

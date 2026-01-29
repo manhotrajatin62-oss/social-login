@@ -35,6 +35,7 @@ app.use(
   }),
 );
 
+// google
 app.get("/auth/google", (_, res) => {
   const redirectUrl =
     "https://accounts.google.com/o/oauth2/v2/auth?" +
@@ -75,12 +76,13 @@ app.get("/auth/google/callback", async (req, res) => {
     },
   );
 
-  // console.log(userInfo.data);
+  console.log("Google", userInfo.data);
 
   res.redirect("http://localhost:5173/");
 });
 
-app.get("/auth/microsoft", (req, res) => {
+// microsoft
+app.get("/auth/microsoft", (_, res) => {
   const url =
     "https://login.microsoftonline.com/common/oauth2/v2.0/authorize?" +
     new URLSearchParams({
@@ -114,19 +116,20 @@ app.get("/auth/microsoft/callback", async (req, res) => {
     },
   });
 
-  // console.log(userRes.data);
+  console.log("Microsoft", userRes.data);
 
   res.redirect("http://localhost:5173/");
 });
 
-app.get("/auth/github", (req, res) => {
+// github
+app.get("/auth/github", (_, res) => {
   const url =
     "https://github.com/login/oauth/authorize?" +
     new URLSearchParams({
       client_id: process.env.GITHUB_CLIENT_ID!,
       redirect_uri: "http://localhost:4000/auth/github/callback",
       scope: "read:user user:email",
-      prompt: "login"
+      prompt: "login",
     });
 
   res.redirect(url);
@@ -155,12 +158,13 @@ app.get("/auth/github/callback", async (req, res) => {
     },
   });
 
-  // console.log(userRes.data);
+  console.log("Github", userRes.data);
 
   res.redirect("http://localhost:5173/");
 });
 
-app.get("/auth/twitter", (req, res) => {
+// twitter
+app.get("/auth/twitter", (_, res) => {
   const { verifier, challenge } = generatePKCE();
   twitterCodeVerifier = verifier;
 
@@ -208,7 +212,7 @@ app.get("/auth/twitter/callback", async (req, res) => {
       },
     });
 
-    // console.log("TWITTER USER 👉", userRes.data);
+    console.log("TWITTER USER", userRes.data);
 
     res.redirect("http://localhost:5173/");
   } catch (err: any) {
